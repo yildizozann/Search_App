@@ -1,6 +1,6 @@
 
-import './App.scss';
-import './ShowMore.scss'
+import './styles/App.scss';
+import './styles/ShowMore.scss'
 import { useMemo, useState } from 'react';
 import userData from './USERS.json'
 import { ReactComponent as Logo } from './logo.svg';
@@ -67,11 +67,11 @@ function App() {
 
         {(showContent && filtered.length !== 0) &&
           <div className='first_table'>
-            {mainPageData.map(el => {
+            {mainPageData.map((el, i) => {
               return (
-                <>
+                <div key={i}>
                   <div className='table1'>
-                    <div className='first_col'>
+                    <div className='first_col' >
                       <p className='city'>{el[4]} - {el[5]} </p>
                       <p className='name'> {el[0]} - {el[3].slice(6,10)} </p>
                     </div>
@@ -80,7 +80,7 @@ function App() {
                     </div>
                   </div>
                   <hr />
-                </>
+                </div>
               );
             })}
             {filtered.length !== 0 && <button className='show_more' onClick={handlePaginationClick}> Show more...</button>}
@@ -92,13 +92,13 @@ function App() {
 
         <div className='second_table'>
 
-          {currentTableData.map(el => {
+          {currentTableData.map((el, i)=> {
             return (
 
-              <>
-                <div className='table2'>
+              <div key={i}>
+                <div className='table2' >
                   <div className='first_col'>
-                    <p className='city'>{el[4]} - {el[5]} </p>
+                    <p className='city' >{el[4]} - {el[5]} </p>
                     <p className='name'> {el[0]} - {el[3].slice(6,10)} </p>
                   </div>
                   <div className='secon_col'>
@@ -106,7 +106,7 @@ function App() {
                   </div>
                 </div>
                 <hr />
-              </>
+              </div>
 
             );
           })}
