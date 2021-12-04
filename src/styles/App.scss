@@ -1,8 +1,10 @@
+@import '/src/styles/media-quary';
+
+
 body{
     margin: auto;
     text-align: center; 
-    font-family: Helvetica, sans-serif;
-  
+    font-family: Helvetica, sans-serif;    
 }
 
 .main_container{
@@ -14,54 +16,75 @@ body{
 
     .logo{
         width: 278px;
-        height: 115px;
-        margin-top: 100px;
+        height: 55px;
+        margin-top: 10px;
         align-items: center;
+
+        @include mobile-2{
+            width: 278px;
+            height: 115px;
+            margin-top: 100px;
+
+        }
+        
     }
     .search{
-        margin-top: 50px;
+        margin-top: 5px;
+        @include laptop{
+            margin-top: 50px;
+        }
         .search_input{
-            width: 809px;
-            height: 46px;
+            width: 159px;
+            height: 36px;
             left: 209px;
             top: 426px;
-
             background: #FFFFFF;
             border: 1px solid #000000;
             box-sizing: border-box;
-            border-radius: 8px;   
+            border-radius: 2px; 
             font-family: Roboto;
             font-style: normal;
             font-weight: bold;
             font-size: 18px;
             line-height: 21px;
             text-align: center;
-
             color: #888888;
-
-
             &:hover{
                 background-color: lightgray;
             }
+            @include mobile-2{
+                width: 459px;
+            };
+            @include laptop{
+                width: 809px;
+                border-radius: 8px; 
+    
+            }
+            
         }
         .search_btn{
-            width: 138px;
-            height: 46px;
+            width: 58px;
+            height: 36px;
             left: 934px;
             top: 426px;
             background: #204080;
-            border-radius: 8px;
+            border-radius: 2px;
             margin-left: 10px;
-            font-size: 18px;
+            font-size: 10px;
             line-height: 21px;
 
             color: #FFFFFF;
             &:hover{
                 background: #4F75C2;
             }
+            @include laptop{
+                width: 138px;
+                font-size: 18px;
+                border-radius: 8px;
+            }
         }
         .first_table{
-            width: 809px;
+            width: 259px;
             height: 350px;
             margin-top: 20px;
             background: #FFFFFF;
@@ -70,6 +93,16 @@ body{
             border-radius: 4px;
             padding-left: 5px;
             padding-right: 5px;
+            @include mobile-2{
+                width: 549px;
+                line-break: anywhere;
+            }
+            
+            @include laptop{
+                width: 809px;
+                margin-top: 20px;
+                
+            }
             .show_more{
             
                 color: #000000;
@@ -86,7 +119,8 @@ body{
             }  
             .table1{
                 height: 80px;
-                width: 800px;
+                width: 250px;
+                font-size: 8px;
                 font-style: normal;
                 font-weight: bold;
                 display: grid;
@@ -95,25 +129,44 @@ body{
                 &:hover{
                     background-color: lightgray;
                 }
+                @include mobile-2{
+                    width: 540px;
+                    font-size: 15px;
+                }
+                @include laptop{
+                    height: 80px;
+                    width: 800px;
+
+                }
                 .first_col{
-                    font-size: 18px; 
+                    font-size: 8px; 
                     color: #484848;
                     display: grid;
                     justify-items: start; 
-                    padding-left: 5px;  
+                    @include mobile-2{
+                        font-size: 15px;
+                    }
+                    @include laptop{
+                        font-size: 18px;
+                        padding-left: 5px; 
+                    } 
                     .name{
                         font-style: normal;
                         font-weight: bold;
-                        font-size: 12px;
+                        font-size: 10px;
                         line-height: 14px;
                         color: #686868;            
                     }
                 }
                 .second_col{
-                    font-size: 12px;
+                  
                     line-height: 14px;
                     color: #686868;
-                    padding-right: 5px;
+                    
+                    @include laptop{
+                        padding-right: 5px; 
+                    }
+                  
                 }
 
             }

@@ -1,33 +1,49 @@
+@import '/src/styles/media-quary';
+
 body{
     margin: auto;
     text-align: center; 
     font-family: Helvetica, sans-serif;
+    font-size: 8px;
+    @include laptop{
+        font-size: 12px;
+    }
   
 }
 
 .after_click{
     display: flex;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-end;
+    @include mobile-2{
+        flex-direction: row;
+        margin-right: 40px;
+        max-width: 1900px; 
+    }
+    @include laptop{
+        margin-right: 120px;
+    }
     
-    
-
     .logo{
         width: 149px;
         height: 63px;
         left: 37px;
         top: 27px;
-        margin-top: 80px;
-       
+        margin-top: 20px;
         margin-right: 50px;
-        
+        @include laptop{
+
+            margin-top: 80px;
+            margin-right: 50px;
+
+        }
         
     }
     .search{
         .search_input{
-            width: 709px;
+            width: 199px;
             height: 46px;
             left: 209px;
             top: 426px;
@@ -35,50 +51,74 @@ body{
             background: #FFFFFF;
             border: 1px solid #000000;
             box-sizing: border-box;
-            border-radius: 8px;   
+            border-radius: 1px;   
             font-family: Roboto;
             font-style: normal;
             font-weight: bold;
             font-size: 18px;
             line-height: 21px;
             text-align: center;
-
             color: #888888;
-
-
             &:hover{
                 background-color: lightgray;
             }
+            @include mobile-2{
+                width: 400px;
+            }
+            @include laptop{
+                width: 609px;
+                height: 46px;
+                left: 209px;
+                top: 426px;
+                border-radius: 8px; 
+                
+            }
         }
         .search_btn{
-            width: 138px;
+            width: 58px;
             height: 46px;
             left: 934px;
             top: 426px;
             background: #204080;
-            border-radius: 8px;
+            border-radius: 1px;
             margin-left: 10px;
-            font-size: 18px;
+            font-size: 10px;
             line-height: 21px;
 
             color: #FFFFFF;
             &:hover{
                 background: #4F75C2;
             }
+            @include laptop{
+                width: 138px;
+                font-size: 18px;
+                border-radius: 8px;
+                
+            }
+            
         }
     }
  
     .second_table{
-        width: 709px;
+        width: 109px;
         height: 300px;
         margin-top: 20px;
-        margin-left: 50px;
+        margin-right: 150px;;
         background: #FFFFFF;
         padding-left: 5px;
-        padding-right: 5px;        
+        padding-right: 5px; 
+        @include mobile-2{
+            width: 409px;
+            margin-top: 20px;
+            margin-left: 50px;
+        @include laptop{
+            width: 709px;
+        }
+
+        }       
         .table2{
             height: 100px;
-            width: 1000px;
+            width: 200px;
             font-style: normal;
             font-weight: bold;
             display: grid;
@@ -87,12 +127,20 @@ body{
             &:hover{
                 background-color: lightgray;
             }
+            @include mobile-2{
+                width: 500px;
+            }   
+            @include laptop{
+                width: 900px;
+            }    
             .first_col{
-                font-size: 18px; 
+                font-size: 10px; 
                 color: #484848;
                 display: grid;
                 justify-items: start; 
-                padding-left: 5px;        
+                @include laptop{
+                    padding-left: 5px; 
+                }       
                 .name{
                     font-style: normal;
                     font-weight: bold;
@@ -105,8 +153,7 @@ body{
                 font-size: 12px;
                 line-height: 14px;
                 color: #686868;
-             
- 
+         
             }
         }
    
