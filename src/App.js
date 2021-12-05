@@ -11,6 +11,7 @@ import className from "classname";
 
 
 
+
 let PageSize = 6;
 
 function App() {
@@ -30,10 +31,19 @@ function App() {
         setFiltered(nameSorted)
         setSortType('')
 
-      } else if (sortType === 'nameB') {
+      } else if (sortType === 'nameD') {
         const nameSorted = filtered.slice().sort().reverse()
         setFiltered(nameSorted)
         setSortType('')
+      }else if (sortType === 'yearA'){
+        const yearSorted = filtered.slice().sort(yearSortAscanding)
+        setFiltered(yearSorted)
+        setSortType('')
+      }else if (sortType === 'yearD'){
+        const yearSorted = filtered.slice().sort(yearSortDescanding)
+        setFiltered(yearSorted)
+        setSortType('')
+
       }else{
         setSortType('')
       }
@@ -73,7 +83,14 @@ function App() {
     setShowMore(true)
     setShowContent(false)
   }
-
+  const yearSortAscanding = (a,b) => {
+    return a[3].slice(6,11)-b[3].slice(6,11)
+  }
+  const yearSortDescanding = (a,b) =>{
+    return b[3].slice(6,11)-a[3].slice(6,11)
+  }
+ 
+ 
   return (
     <div className={searchClass}>
       <Logo className='logo'></Logo>
@@ -116,8 +133,10 @@ function App() {
             <Order className='order_logo'></Order>
             <select className='order_box'  onChange={e => setSortType(e.target.value)}>
               <option className='option' value="" hidden >Order By</option>
-              <option className='option' value='nameA'>Name ascending</option>
-              <option value='nameB'>Name descending</option>
+              <option value='nameA'>Name ascending</option>
+              <option value='nameD'>Name descending</option>
+              <option  value='yearA'>Year ascending</option>
+              <option value='yearD'>Year descending</option>
             </select>
           </div>
 
