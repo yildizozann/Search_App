@@ -25,12 +25,10 @@ function App() {
 
   useEffect(() => {
     const sortData = () => {
-
       if (sortType === 'nameA') {
         const nameSorted = filtered.slice().sort();
         setFiltered(nameSorted)
         setSortType('')
-
       } else if (sortType === 'nameD') {
         const nameSorted = filtered.slice().sort().reverse()
         setFiltered(nameSorted)
@@ -43,7 +41,6 @@ function App() {
         const yearSorted = filtered.slice().sort(yearSortDescanding)
         setFiltered(yearSorted)
         setSortType('')
-
       }else{
         setSortType('')
       }
@@ -76,16 +73,17 @@ function App() {
       setFiltered(filterData)
       setMainPapeData(filterData.slice(0, 3))
     }
-
   }
-  const handlePaginationClick = () => {
 
+  const handlePaginationClick = () => {
     setShowMore(true)
     setShowContent(false)
   }
+
   const yearSortAscanding = (a,b) => {
     return a[3].slice(6,11)-b[3].slice(6,11)
   }
+  
   const yearSortDescanding = (a,b) =>{
     return b[3].slice(6,11)-a[3].slice(6,11)
   }
