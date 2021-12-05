@@ -93,9 +93,10 @@ body{
             border-radius: 4px;
             padding-left: 5px;
             padding-right: 5px;
+            line-break: default;
             @include mobile-2{
                 width: 549px;
-                line-break: anywhere;
+                
             }
             
             @include laptop{
@@ -118,7 +119,7 @@ body{
                 }
             }  
             .table1{
-                height: 80px;
+                height: 90px;
                 width: 250px;
                 font-size: 8px;
                 font-style: normal;
@@ -134,7 +135,6 @@ body{
                     font-size: 15px;
                 }
                 @include laptop{
-                    height: 80px;
                     width: 800px;
 
                 }
@@ -142,9 +142,13 @@ body{
                     font-size: 8px; 
                     color: #484848;
                     display: grid;
-                    justify-items: start; 
+                    justify-items: start;
+                    text-align: left;
+                    width: 150px;
+                    
                     @include mobile-2{
                         font-size: 15px;
+                        width: auto;
                     }
                     @include laptop{
                         font-size: 18px;
@@ -155,18 +159,25 @@ body{
                         font-weight: bold;
                         font-size: 10px;
                         line-height: 14px;
-                        color: #686868;            
+                        color: #686868;
+                        text-align: left;  
+                       
                     }
                 }
                 .second_col{
                   
                     line-height: 14px;
                     color: #686868;
+                   
                     
                     @include laptop{
                         padding-right: 5px; 
                     }
                   
+                }   .email{
+                    text-align: left;
+                    line-break: anywhere;
+
                 }
 
             }

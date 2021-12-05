@@ -1,11 +1,15 @@
 
 import './styles/App.scss';
 import './styles/ShowMore.scss'
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import userData from './USERS.json'
 import { ReactComponent as Logo } from './logo.svg';
+import { ReactComponent as Order } from './order.svg';
 import Pagination from './components/Pagination';
 import className from "classname";
+
+
+
 
 let PageSize = 6;
 
@@ -16,8 +20,26 @@ function App() {
   const [mainPageData, setMainPapeData] = useState([])
   const [showMore, setShowMore] = useState(false)
   const [showContent, setShowContent] = useState(false)
+  const [sortType, setSortType] = useState('')
 
+  useEffect(() => {
+    const sortData = () => {
 
+      if (sortType === 'nameA') {
+        const nameSorted = filtered.slice().sort();
+        setFiltered(nameSorted)
+        setSortType('')
+
+      } else if (sortType === 'nameB') {
+        const nameSorted = filtered.slice().sort().reverse()
+        setFiltered(nameSorted)
+        setSortType('')
+      }else{
+        setSortType('')
+      }
+    };
+    sortData()
+  }, [sortType, filtered])
 
 
   const currentTableData = useMemo(() => {
@@ -52,7 +74,6 @@ function App() {
     setShowContent(false)
   }
 
-
   return (
     <div className={searchClass}>
       <Logo className='logo'></Logo>
@@ -67,13 +88,14 @@ function App() {
 
         {(showContent && filtered.length !== 0) &&
           <div className='first_table'>
+
             {mainPageData.map((el, i) => {
               return (
                 <div key={i}>
                   <div className='table1'>
                     <div className='first_col' >
                       <p className='city'>{el[4]} - {el[5]} </p>
-                      <p className='name'> {el[0]} - {el[3].slice(6,10)} </p>
+                      <p className='name'> {el[0]} - {el[3].slice(6, 10)} </p>
                     </div>
                     <div className='secon_col'>
                       <p className='email'>Email: {el[2]}</p>
@@ -89,19 +111,26 @@ function App() {
       </form>
 
       {(currentTableData.length !== 0 && showMore) &&
-
         <div className='second_table'>
+          <div className='order'>
+            <Order className='order_logo'></Order>
+            <select className='order_box'  onChange={e => setSortType(e.target.value)}>
+              <option className='option' value="" hidden >Order By</option>
+              <option className='option' value='nameA'>Name ascending</option>
+              <option value='nameB'>Name descending</option>
+            </select>
+          </div>
 
-          {currentTableData.map((el, i)=> {
+          {currentTableData.map((el, i) => {
             return (
 
               <div key={i}>
                 <div className='table2' >
                   <div className='first_col'>
                     <p className='city' >{el[4]} - {el[5]} </p>
-                    <p className='name'> {el[0]} - {el[3].slice(6,10)} </p>
+                    <p className='name'> {el[0]} - {el[3].slice(6, 10)} </p>
                   </div>
-                  <div className='secon_col'>
+                  <div className='second_col'>
                     <p className='email'>Email: {el[2]}</p>
                   </div>
                 </div>

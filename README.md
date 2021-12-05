@@ -2,7 +2,13 @@
 
 React and scss is used for this project.
 
-Site have functionality for search and filter data.
+APP is Responsive.
+
+APP have functionality for name based search and filter data.
+
+APP have paggination.
+
+APP created by Create-React-App
 
 To customize this view for your needs, follow the steps below.
 
