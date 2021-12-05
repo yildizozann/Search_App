@@ -6,7 +6,7 @@ APP is Responsive.
 
 APP have functionality for name based search and filter data.
 
-APP have paggination.
+APP have pagination.
 
 APP created by Create-React-App
 
